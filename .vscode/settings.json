@@ -1,0 +1,6 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "livePreview.defaultPreviewPath": "/intel-sustainability-timeline/public/index.html",
+    "livePreview.port": 3000,
+    "livePreview.openPreviewOnFileSave": true
+}
