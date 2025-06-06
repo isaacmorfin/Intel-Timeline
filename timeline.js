@@ -62,6 +62,17 @@ const goals = [
                     </div>
                 </div>
             `;
+            event.addEventListener('click', () => {
+    // Fill modal content
+    document.getElementById('eventModalLabel').textContent = goal.title + " (" + goal.year + ")";
+    document.getElementById('eventModalBody').innerHTML = `
+        ${goal.image ? `<img src="${goal.image}" alt="" class="img-fluid mb-3" style="max-height:180px;object-fit:cover;border-radius:10px;">` : ""}
+        <p>${goal.details}</p>
+    `;
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('eventModal'));
+    modal.show();
+});
             event.addEventListener('click', (e) => {
                 // Only toggle if not clicking on image (to allow image preview in future)
                 if (!e.target.classList.contains('event-image')) {
