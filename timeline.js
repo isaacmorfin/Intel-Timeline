@@ -96,21 +96,6 @@ const goals = [
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // Expand/collapse all
-        const toggleAllBtn = document.getElementById('toggleAllBtn');
-        let allOpen = false;
-        toggleAllBtn.addEventListener('click', () => {
-            allOpen = !allOpen;
-            document.querySelectorAll('.event').forEach(ev => {
-                if (allOpen) {
-                    ev.classList.add('open');
-                } else {
-                    ev.classList.remove('open');
-                }
-            });
-            toggleAllBtn.textContent = allOpen ? "Collapse All" : "Expand All";
-        });
-
         let aiState = "idle";
         let pushTimeout;
         const timelineDiv = document.querySelector('.timeline');
@@ -225,8 +210,10 @@ const goals = [
             }
         }, { passive: true });
 
+        // After all events are appended:
         const events = document.querySelectorAll('.event');
 
+        // Intersection Observer for scroll snap/transform effect
         const observer = new IntersectionObserver(
           entries => {
             entries.forEach(entry => {
